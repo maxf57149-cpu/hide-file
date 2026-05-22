@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriceCompare — Amazon vs Flipkart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">₹</span>
+                <span>Price<span class="logo-accent">Compare</span></span>
+            </div>
+            <p class="tagline">Paste product links — see who sells cheaper</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="compare-form card">
+            <h1>Compare prices</h1>
+            <p class="subtitle">Works for phones, laptops, and any product on Amazon India & Flipkart.</p>
+
+            <form id="compare-form" novalidate>
+                <label class="field">
+                    <span class="field-label">Amazon India link</span>
+                    <input
+                        type="url"
+                        id="amazon-url"
+                        name="amazon_url"
+                        placeholder="https://www.amazon.in/dp/..."
+                        autocomplete="off"
+                        required
+                    >
+                </label>
+
+                <label class="field">
+                    <span class="field-label">Flipkart link</span>
+                    <input
+                        type="url"
+                        id="flipkart-url"
+                        name="flipkart_url"
+                        placeholder="https://www.flipkart.com/.../p/..."
+                        autocomplete="off"
+                        required
+                    >
+                </label>
+
+                <p id="form-error" class="form-error hidden" role="alert"></p>
+
+                <button type="submit" class="btn-primary" id="compare-btn">
+                    Compare prices
+                </button>
+            </form>
+        </section>
+
+        <section id="loading" class="loading hidden" aria-live="polite">
+            <div class="spinner"></div>
+            <p>Fetching live prices…</p>
+            <p class="loading-hint">This may take up to 10 seconds.</p>
+        </section>
+
+        <section id="results" class="results hidden">
+            <div id="summary" class="summary card"></div>
+            <p id="warning" class="warning hidden"></p>
+            <div class="cards-grid">
+                <article id="amazon-card" class="product-card card"></article>
+                <article id="flipkart-card" class="product-card card"></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Prices are fetched live from product pages and may differ at checkout. For personal use only.</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

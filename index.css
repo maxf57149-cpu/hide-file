@@ -1,0 +1,369 @@
+:root {
+    --bg: #0f1419;
+    --surface: #1a2332;
+    --surface-hover: #243044;
+    --border: #2d3a4f;
+    --text: #e8edf4;
+    --muted: #8b9cb3;
+    --amazon: #ff9900;
+    --flipkart: #2874f0;
+    --cheaper: #22c55e;
+    --error: #f87171;
+    --radius: 12px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+.header {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #151d28 0%, var(--bg) 100%);
+    padding: 1.5rem 1rem 2rem;
+}
+
+.header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: var(--cheaper);
+    color: #0f1419;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.logo-accent {
+    color: var(--cheaper);
+}
+
+.tagline {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.compare-form {
+    padding: 1.75rem;
+}
+
+.compare-form h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0.35rem 0 1.25rem;
+}
+
+.field {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.field-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.field input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: var(--cheaper);
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.form-error {
+    color: var(--error);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--cheaper);
+    color: #0f1419;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: filter 0.15s, transform 0.1s;
+}
+
+.btn-primary:hover:not(:disabled) {
+    filter: brightness(1.08);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.loading {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: var(--muted);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--border);
+    border-top-color: var(--cheaper);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-hint {
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+}
+
+.summary {
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.summary.cheaper-amazon {
+    border-color: rgba(255, 153, 0, 0.5);
+    background: linear-gradient(135deg, rgba(255, 153, 0, 0.12), var(--surface));
+}
+
+.summary.cheaper-flipkart {
+    border-color: rgba(40, 116, 240, 0.5);
+    background: linear-gradient(135deg, rgba(40, 116, 240, 0.12), var(--surface));
+}
+
+.summary.cheaper-tie {
+    border-color: var(--border);
+}
+
+.summary-message {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.summary-sub {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.warning {
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    color: #fcd34d;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.cards-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .cards-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.product-card {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.product-card.is-cheaper {
+    border-color: var(--cheaper);
+    box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.3), var(--shadow);
+}
+
+.store-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.store-badge.amazon {
+    background: rgba(255, 153, 0, 0.2);
+    color: var(--amazon);
+}
+
+.store-badge.flipkart {
+    background: rgba(40, 116, 240, 0.2);
+    color: var(--flipkart);
+}
+
+.cheaper-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--cheaper);
+}
+
+.product-image {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    background: var(--bg);
+    border-radius: 8px;
+}
+
+.product-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.price-main {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.price-mrp {
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.price-discount {
+    font-size: 0.85rem;
+    color: var(--cheaper);
+}
+
+.price-unavailable {
+    color: var(--error);
+    font-size: 0.95rem;
+}
+
+.card-error {
+    font-size: 0.85rem;
+    color: var(--error);
+}
+
+.btn-link {
+    display: inline-block;
+    margin-top: auto;
+    padding: 0.6rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.15s;
+}
+
+.btn-link.amazon {
+    background: rgba(255, 153, 0, 0.15);
+    color: var(--amazon);
+}
+
+.btn-link.flipkart {
+    background: rgba(40, 116, 240, 0.15);
+    color: var(--flipkart);
+}
+
+.btn-link:hover {
+    filter: brightness(1.15);
+}
+
+.footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+}
+
+.hidden {
+    display: none !important;
+}
